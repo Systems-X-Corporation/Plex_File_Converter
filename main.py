@@ -22,10 +22,10 @@ try:
                 values['-CONC-']) > 3):
             window['-CONC-'].update(values['-CONC-'][:-1])
         elif event == "Convertir":
-            if values['-IN-'].lower().endswith(('.csv')) == True:
+            if values["-IN-"].lower().endswith(('.csv')) == True:
                 if values['-CONC-']:
 
-                    df = pd.read_csv(values['-IN-'], dtype={'Cuenta Destino': str, 'Cuenta Origen': str, 'Descripcion': str})
+                    df = pd.read_csv(values["-IN-"])
 
                     df['Operacion'] = df['Operacion'].fillna('')
                     df['Clave ID'] = df['Clave ID'].fillna('')
@@ -34,7 +34,7 @@ try:
                     df['Importe'] = df['Importe'].fillna(0)
                     df['Importe'] = df['Importe'].replace(",", "", regex=True)
                     df['Importe'] = df['Importe'].astype(float)
-                    df['Importe'] = (df['Importe']*100).astype(int)
+                    df['Importe'] = (df['Importe'] * 100).astype(int)
                     df['Referencia'] = df['Referencia'].fillna('')
                     df['Descripcion'] = df['Descripcion'].fillna('')
                     df['Moneda Origen'] = df['Moneda Origen'].fillna('1')
@@ -42,7 +42,8 @@ try:
                     df['RFC Ordenante'] = df['RFC Ordenante'].fillna('')
                     df['IVA'] = df['IVA'].fillna(0)
                     df['Email Beneficiario'] = df['Email Beneficiario'].fillna('')
-                    df['Fecha Aplicacion'] = df['Fecha Aplicacion'].fillna('')
+                    df['Fecha Aplicacion'] = pd.to_datetime(df['Fecha Aplicacion'])
+                    df['Fecha Aplicacion'] = df['Fecha Aplicacion'].dt.strftime('%d/%m/%Y').fillna('')
                     df['Instruccion Pago'] = df['Instruccion Pago'].fillna('')
 
                     export_Payments = ''
@@ -81,7 +82,8 @@ try:
 
             else:
                 sg.Popup('Archivo inválido', keep_on_top=True, modal=True)
-except:
-    sg.Popup('Ocurrió un error. Intente de nuevo', keep_on_top=True, modal=True)
+except Exception as e:
+    sg.Popup('Ocurrió un error. Intente de nuevo.\n', keep_on_top=True, modal=True)
+    print(e)
 
 window.close()
