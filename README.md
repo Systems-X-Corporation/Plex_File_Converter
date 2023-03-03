@@ -4,7 +4,7 @@ This application's purpose is to transform extracted data from Plex into a desir
 
 ## Installation
 
-It doesn't need any installation process, just click on this [link](https://drive.google.com/file/d/1FTl2cWwMsaAp2iXHeagMVyyG38C1ZreW/view?usp=sharing) to download the exe file and it is ready to be used.
+It doesn't need any installation process, just click on this [link](https://drive.google.com/drive/folders/18AvHl1LsOCEDdg7N8EUgKOb__rwJ0u5z?usp=sharing) to find the exe file and the user guide. Download the exe file and it is ready to be used.
 
 ## How to use
 
