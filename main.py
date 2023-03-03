@@ -4,10 +4,10 @@ import os
 from datetime import date
 
 sg.theme("LightGreen")
-layout = [[sg.T("")], [sg.Text("No. Consecutivo:  "), sg.Input(default_text="001", key="-CONC-", enable_events=True)],
+layout = [[sg.T("")], [sg.Text("No. Consecutivo:  "), sg.Input(default_text="001", key='-CONC-', enable_events=True)],
           [sg.T("")],
           [sg.Text("Archivo: "), sg.Input(readonly=True),
-           sg.FileBrowse(button_text=". . .", key="-IN-")], [sg.T("")], [sg.Button("Convertir")]]
+           sg.FileBrowse(button_text=". . .", key='-IN-')], [sg.T("")], [sg.Button("Convertir")]]
 
 ###Building Window
 window = sg.Window('Banorte Payments by Systems-X', layout, size=(500, 180), element_justification='center')
@@ -22,10 +22,10 @@ try:
                 values['-CONC-']) > 3):
             window['-CONC-'].update(values['-CONC-'][:-1])
         elif event == "Convertir":
-            if values["-IN-"].lower().endswith(('.xlsx')) == True:
+            if values["-IN-"].lower().endswith(('.csv')) == True:
                 if values['-CONC-']:
 
-                    df = pd.read_excel(values["-IN-"], dtype={'Cuenta Destino': str})
+                    df = pd.read_csv(values["-IN-"])
 
                     df['Operacion'] = df['Operacion'].fillna('')
                     df['Clave ID'] = df['Clave ID'].fillna('')
