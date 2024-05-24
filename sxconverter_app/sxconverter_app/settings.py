@@ -25,9 +25,9 @@ APP_NAME = 'SxConverter'
 SECRET_KEY = 'django-insecure-l(*7clx6%9v_(7k&3=7ky7yba*5^46g3&!a0s4)l2sk^4*y2x0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sxconverter.azurewebsites.net']
 
 
 # Application definition
@@ -51,6 +51,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

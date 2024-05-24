@@ -9,6 +9,7 @@ django = "*"
 django-bootstrap5 = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
+whitenoise = "*"
 
 [dev-packages]
 
