@@ -25,7 +25,7 @@ APP_NAME = 'SxConverter'
 SECRET_KEY = 'django-insecure-l(*7clx6%9v_(7k&3=7ky7yba*5^46g3&!a0s4)l2sk^4*y2x0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['systemsx-products.azurewebsites.net']
 
@@ -132,7 +132,10 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -147,4 +150,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
+#CSRF Tokens
+# settings.py
 
+CSRF_TRUSTED_ORIGINS = ['https://systemsx-products.azurewebsites.net']
