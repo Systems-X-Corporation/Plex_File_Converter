@@ -147,28 +147,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
-CSRF_TRUSTED_ORIGINS = ['https://systemsx-products.azurewebsites.net']
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 
-CSRF_USE_SESSIONS = False  # Change to True if you want to store CSRF tokens in the session
-CSRF_COOKIE_HTTPONLY = False  # Change to True if you want to make the CSRF cookie HTTP-only
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.security.csrf': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    },
-}
 
 
 
