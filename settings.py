@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-l(*7clx6%9v_(7k&3=7ky7yba*5^46g3&!a0s4)l2sk^4*y2x0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['systemsx-products.azurewebsites.net']
+ALLOWED_HOSTS = ['sxconverter.azurewebsites.net']
 
 
 # Application definition
@@ -130,9 +130,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'converter', 'static', 'converter')
 ]
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
