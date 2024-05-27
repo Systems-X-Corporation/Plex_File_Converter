@@ -147,4 +147,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
+CSRF_TRUSTED_ORIGINS = ['https://systemsx-products.azurewebsites.net']
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
