@@ -132,7 +132,10 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -151,8 +154,6 @@ LOGIN_URL = '/login/'
 # settings.py
 
 CSRF_TRUSTED_ORIGINS = ['https://systemsx-products.azurewebsites.net']
-CSRF_COOKIE_SECURE = True  # Set to True if you are using HTTPS
-CSRF_USE_SESSIONS = False
 
 
 
