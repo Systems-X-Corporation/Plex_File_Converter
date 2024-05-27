@@ -1,0 +1,103 @@
+
+body {
+    background-color: #121111; /* Dark background color */
+    font-family: 'Arial', sans-serif;
+    color: #191970;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+body::before {
+
+    /* Create a pseudo-element for the background image */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/converter/images/Option1.webp') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5; /* Set the transparency of the image */
+    z-index: -1; /* Place the image behind the content */
+}
+
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.login-container h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #007bff;
+}
+.form-floating {
+    position: relative;
+}
+.form-floating > .form-control, .form-floating > .form-select {
+    height: calc(3.75rem + 2px);
+    padding: 1.25rem 0.75rem;
+    transition: all 0.3s;
+}
+.form-floating > .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+.form-floating > label {
+    padding: 1.25rem 0.75rem;
+    transition: all 0.3s;
+}
+.form-floating > .form-control:focus + label {
+    color: #007bff;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 1rem;
+    padding: 0.75rem;
+    transition: background-color 0.1s, border-color 0.1s, transform 0.1s;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: translateY(-2px);
+}
+.login-container .fa {
+    margin-right: 10px;
+}
+.alert {
+    font-size: 0.875rem;
+}
+.text-muted {
+    font-size: 0.875rem;
+}
+.text-center p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+.login-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://unsplash.com/s/photos/analytics-and-reporting') no-repeat center center;
+    background-size: cover;
+    filter: grayscale(30%);
+}
