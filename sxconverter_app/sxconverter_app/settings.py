@@ -147,6 +147,12 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
+#CSRF Tokens
+# settings.py
+
+CSRF_TRUSTED_ORIGINS = ['https://systemsx-products.azurewebsites.net']
+CSRF_COOKIE_SECURE = True  # Set to True if you are using HTTPS
+CSRF_USE_SESSIONS = False
 
 
 

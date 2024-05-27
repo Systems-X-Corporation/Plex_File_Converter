@@ -8,6 +8,9 @@ from io import StringIO
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
+import logging
+
+logger = logging.getLogger(__name__)
 
 class MainView(LoginRequiredMixin, TemplateView):
         template_name = 'converter/upload_file.html'
@@ -18,6 +21,8 @@ class MainView(LoginRequiredMixin, TemplateView):
 
         def post(self, request):
             form = UploadFileForm(request.POST, request.FILES)
+            logger.debug(f"CSRF token in cookie: {request.COOKIES.get('csrftoken')}")
+            logger.debug(f"CSRF token in POST: {request.POST.get('csrfmiddlewaretoken')}")
             if form.is_valid():
                 file_type = request.POST.get('fileType')
                 file_content = request.FILES['file'].read().decode('utf-8')
